@@ -1,3 +1,6 @@
+let playerWin = 0;
+let computerWin = 0;
+
 function getComputerChoice() {
     const choices = ["Rock", "Paper", "Scissors"];
     let random = Math.floor(Math.random() * choices.length);
@@ -7,7 +10,6 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection){
     const player = playerSelection.toLowerCase();
-    console.log(computerSelection);
     if(player == computerSelection){
         console.log("Draw!");
     } else{
@@ -38,6 +40,12 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-const playerSelection = "scissors";
-const computerSelection = getComputerChoice(); 
-playRound(playerSelection, computerSelection);
+function game(){
+    for(let i=0;i<5;i++){
+        const playerSelection = "scissors";
+        const computerSelection = getComputerChoice(); 
+        playRound(playerSelection, computerSelection);
+    }
+}
+
+game();
