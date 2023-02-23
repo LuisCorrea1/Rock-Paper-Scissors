@@ -40,12 +40,18 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
+
 function game(){
     for(let i=0;i<5;i++){
-        const playerSelection = "scissors";
+        const playerSelection = playerChoice();
         const computerSelection = getComputerChoice(); 
         playRound(playerSelection, computerSelection);
     }
+}
+
+function playerChoice(){
+    let selection = prompt("Select Rock, Paper, or Scissors");
+    return selection;
 }
 
 game();
