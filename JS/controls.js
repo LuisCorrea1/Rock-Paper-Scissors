@@ -48,6 +48,9 @@ function playRound(playerSelection, computerSelection) {
             }
         }
     }
+
+    if(playerWin===5) alert("You win!!");
+    if(computerWin===5) alert ("Computer Wins!")
 }
 
 const buttons = document.querySelectorAll('#btn');
