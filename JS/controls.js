@@ -8,33 +8,43 @@ function getComputerChoice() {
     return result;
 }
 
+//Get the div element to print the results
+const printResult = document.querySelector('.container');
+
+
 function playRound(playerSelection, computerSelection) {
     const player = playerSelection;
     if (player == computerSelection) {
-        console.log("Draw!");
+        printResult.textContent = 'Draw!!';
     } else {
         //Player selected Rock
         if ((player == "rock") && (computerSelection == "paper")) {
-            console.log("You lose! Paper beats Rock");
+            printResult.textContent = "You lose! Paper beats Rock";
+            computerWin++;
         } else {
             if ((player == "rock") && (computerSelection == "scissors")) {
-                console.log("You win! Rock beats Scissors");
+                printResult.textContent = "You win! Rock beats Scissors";
+                playerWin++;
             }
         }
         //Player selected Paper
         if ((player == "paper") && (computerSelection == "scissors")) {
-            console.log("You lose! Scissors beats Paper");
+            printResult.textContent = "You lose! Scissors beats Paper";
+            computerWin++;
         } else {
             if ((player == "paper") && (computerSelection == "rock")) {
-                console.log("You win! Paper beats Rock");
+                printResult.textContent = "You win! Paper beats Rock";
+                playerWin++;
             }
         }
         //Player selected scissors
         if ((player == "scissors") && (computerSelection == "rock")) {
-            console.log("You lose! Rock beats Scissors");
+            printResult.textContent = "You lose! Rock beats Scissors";
+            computerWin++;
         } else {
             if ((player == "scissors") && (computerSelection == "paper")) {
-                console.log("You win! Scissors beats Paper");
+                printResult.textContent = "You win! Scissors beats Paper"
+                playerWin++;
             }
         }
     }
@@ -46,8 +56,14 @@ buttons.forEach(button => {
         const computerSelection = getComputerChoice();
         const playerSelection = button.value;
         playRound(playerSelection, computerSelection);
+        updateScores();
     });
 });
+
+function updateScores() {
+    document.getElementById("playerScore").textContent = playerWin;
+    document.getElementById("computerScore").textContent = computerWin;
+}
 
     
     
